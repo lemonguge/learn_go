@@ -91,4 +91,6 @@ func main() {
 	// nan == nan is false
 	nan := math.NaN()
 	fmt.Println(nan) // false false false
+
+	// 布尔值可以和 &&（AND）和 ||（OR）操作符结合，并且有短路行为
 }
