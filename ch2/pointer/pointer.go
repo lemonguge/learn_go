@@ -33,7 +33,7 @@ func main() {
 	fmt.Println(incr(&v) == v) // v is 3
 
 	leo := person{10, "leo"}
-	// 结构类型传递的是其本身以及里面的值的拷贝
+	// 复合类型传递的是其本身以及里面的值的拷贝
 	modify(leo)
 	fmt.Println(leo) // {10 leo}
 
