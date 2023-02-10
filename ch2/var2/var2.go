@@ -58,7 +58,8 @@ func main() {
 
 	// 隐式地对 slice 的每个元素进行赋值操作（隐式赋值）
 	medals := []string{"gold", "silver", "bronze"}
-	fmt.Println(medals)
+	fmt.Println(medals)                     // [gold silver bronze]
+	fmt.Println(len(medals) == cap(medals)) // true
 
 	// 如果将指向短生命周期对象的指针保存到具有长生命周期的对象中，特别是保存到全局变量时，会阻止对短生命周期对象的垃圾回收
 }

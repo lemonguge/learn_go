@@ -59,6 +59,8 @@ func main() {
 
 	// 数组类型是可以相互比较的，只有当两个数组的所有元素都是相等的时候数组才是相等的。
 	fmt.Println(p == q, q == r) // true false
+	r[2] = 3
+	fmt.Println(q == r) // true
 
 	s := sha256.Sum256([]byte("x"))
 	s2 := sha256.Sum256([]byte("X"))
