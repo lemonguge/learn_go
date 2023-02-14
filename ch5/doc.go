@@ -29,6 +29,7 @@ func hypot(x, y float64) float64 {
 // 如果实参包括引用类型（指针、切片、字典、函数、通道），实参可能会由于函数的间接引用被修改。
 
 // 没有函数体的函数声明，表示该函数不是以 Go 实现的。这样的声明定义了函数签名。
+// Go 语言使用可变栈，栈的大小按需增加（初始时很小）。在使用递归时不必考虑溢出和安全问题。
 
 func add(x int, y int) int   { return x + y }
 func sub(x, y int) (z int)   { z = x - y; return }
