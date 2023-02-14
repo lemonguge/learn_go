@@ -19,6 +19,7 @@ func main() {
 	for {
 		// 解码的 rune 字符的值，字符 UTF-8 编码后的长度，和一个错误值。
 		r, n, err := in.ReadRune() // returns rune, nbytes, error
+		// io.EOF 由文件结束引起的读取失败
 		if err == io.EOF {
 			break
 		}
