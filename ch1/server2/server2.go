@@ -7,6 +7,7 @@ import (
 	"sync"
 )
 
+// 零值是一个有效的未锁定状态
 var mu sync.Mutex
 var count int
 
