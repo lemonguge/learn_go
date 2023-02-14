@@ -2,7 +2,12 @@ package main
 
 import (
 	"fmt"
+	"image"
 	"math"
+	"net/http"
+	"time"
+
+	"golang.org/x/net/html"
 )
 
 // 函数声明包括函数名、形式参数列表、返回值列表（可省略）以及函数体。
@@ -35,6 +40,31 @@ func add(x int, y int) int   { return x + y }
 func sub(x, y int) (z int)   { z = x - y; return }
 func first(x int, _ int) int { return x }
 func zero(int, int) int      { return 0 }
+
+// 准确的变量名可以传达函数返回值的含义。尤其在返回值的类型都相同时，就像下面这样：
+func Size(rect image.Rectangle) (width, height int)     { return }
+func Split(path string) (dir, file string)              { return }
+func HourMinSec(t time.Time) (hour, minute, second int) { return }
+
+// 如果一个函数所有的返回值都有显式的变量名，那么该函数的 return 语句可以省略操作数。这称之为 bare return。
+func CountWordsAndImages(url string) (words, images int, err error) {
+	resp, err := http.Get(url)
+	if err != nil {
+		// 等价于 return 0, 0, err
+		return
+	}
+	doc, err := html.Parse(resp.Body)
+	resp.Body.Close()
+	if err != nil {
+		err = fmt.Errorf("parsing HTML: %s", err)
+		// 等价于 return 0, 0, err
+		return
+	}
+	words, images = countWordsAndImages(doc)
+	return
+	// 等价于 return words, images, nil
+}
+func countWordsAndImages(n *html.Node) (words, images int) { return }
 
 func main() {
 	// 3 和 4 是调用时的传入的实参
