@@ -33,4 +33,8 @@ func main() {
 	fmt.Println(strings.Map(addOne, "HAL-9000")) // IBM.:111
 	fmt.Println(strings.Map(addOne, "VMS"))      // WNT
 	fmt.Println(strings.Map(addOne, "Admix"))    // Benjy
+
+	// 匿名函数
+	fmt.Println(strings.Map(func(r rune) rune { return r + 1 }, "HAL-9000")) // IBM.:111
+
 }
