@@ -29,7 +29,7 @@ func main() {
 	isZero(1)
 }
 
-func isZero(i int) bool {
+func isZero(i int) {
 	type bailout struct{}
 	defer func() {
 		switch p := recover(); p {
@@ -47,5 +47,4 @@ func isZero(i int) bool {
 	if i > 0 {
 		panic("greater than 0")
 	}
-	return true
 }
