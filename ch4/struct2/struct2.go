@@ -20,7 +20,7 @@ type Employee struct {
 	Salary, ManagerID int
 	// 可以使用顺序赋值来初始化结构体的成员，因此结构体成员的顺序调整可能导致编译不通过。
 
-	// 一个命名为S的结构体类型将不能再包含S类型的成员：因为一个聚合的值不能包含它自身。
+	// 一个命名为 S 的结构体类型将不能再包含 S 类型的成员：因为一个聚合的值不能包含它自身。
 	// director Employee // compile error: illegal cycle in declaration of Employee
 	// 但是 S 类型的结构体可以包含 *S 指针类型的成员
 	director *Employee
