@@ -42,6 +42,9 @@ func main() {
 	}
 	fmt.Println(perim.Distance()) // 12
 
+	fmt.Printf("%T\n", p.ScaleBy)        // func(float64)
+	fmt.Printf("%T\n", (*Point).ScaleBy) // func(*main.Point, float64)
+
 	(&q).ScaleBy(0.5)
 	fmt.Println(q) // {2 3}
 	// 语法糖，编译器会隐式地帮我们用 &q 去调用 ScaleBy 这个方法。
@@ -53,6 +56,13 @@ func main() {
 
 	var i *IntList
 	fmt.Println(i == nil, i.Sum()) // true 0
+
+	// 返回一个将方法（Point.Distance）绑定到特定接收器变量（p）的函数
+	distanceFromP := p.Distance
+	fmt.Println(distanceFromP(q)) // 5
+	// 返回一个函数值，这种函数会将其第一个参数用作接收器
+	distance := Point.Distance
+	fmt.Println(distance(p, q)) // 5
 }
 
 // 可以给同一个包内的任意命名类型定义方法，只要这个命名类型的底层类型不是指针或者 interface。
